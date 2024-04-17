@@ -8,8 +8,10 @@ module.exports = (menuData, orderDB) => {
     const { userId, products } = req.body;
 
     // Get product prices from the menu
+    console.log(menuData.menu);
     const orderedProducts = products.map((productId) => {
-      const product = menuData.menu.find((product) => product.id === productId);
+      const id = parseInt(productId, 10);
+      const product = menuData.menu.find((product) => product.id === id);
       return product ? product.price : 0; // Return 0 if product not found
     });
 
