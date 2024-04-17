@@ -34,5 +34,16 @@ module.exports = (menuData, orderDB) => {
     });
   });
 
+  router.get("/orders", (req, res) => {
+    console.log("GET request received for /order/orders");
+    orderDB.find({}, (err, orders) => {
+      if (err) {
+        res.status(500).json({ error: "Failed to fetch orders" });
+      } else {
+        res.status(200).json(orders);
+      }
+    });
+  });
+
   return router;
 };

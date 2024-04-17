@@ -14,6 +14,15 @@ module.exports = (userDB) => {
       }
     });
   });
+  router.get("/users", (req, res) => {
+    userDB.find({}, (err, users) => {
+      if (err) {
+        res.status(500).json({ error: "Failed to fetch users" });
+      } else {
+        res.status(200).json(users);
+      }
+    });
+  });
 
   return router;
 };

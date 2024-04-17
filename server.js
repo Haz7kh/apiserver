@@ -5,9 +5,6 @@ const fs = require("fs");
 const authRoutes = require("./routes/auth");
 const orderRoutes = require("./routes/order");
 const historyRoutes = require("./routes/history");
-const createUser = require("./models/user");
-const createProduct = require("./models/product");
-const createOrder = require("./models/order");
 
 const app = express();
 
